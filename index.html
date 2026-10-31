@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALL LINK BYPASS</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;padding:25px;
+  font-family:Arial,sans-serif;
+  background:#f5f6fa;color:#222;
+}
+.container{
+  max-width:450px;margin:70px auto;
+  background:white;padding:25px;
+  border-radius:18px;
+  box-shadow:0 5px 25px #0001;
+}
+h1{text-align:center;font-size:27px}
+p{text-align:center;color:#777}
+input{
+  width:100%;padding:15px;
+  border:1px solid #ddd;border-radius:10px;
+  margin:15px 0;font-size:15px;
+}
+button{
+  width:100%;padding:15px;
+  border:0;border-radius:10px;
+  background:#222;color:white;
+  font-size:16px;font-weight:bold;
+}
+#result{margin-top:20px;overflow-wrap:anywhere}
+a{color:#1675dd}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>ALL LINK BYPASS</h1>
+<p>SMART LINK CHECKER</p>
+<input id="link" placeholder="Dán link vào đây...">
+<button onclick="checkLink()">KIỂM TRA LINK</button>
+<div id="result"></div>
+</div>
+<script>
+function checkLink(){
+ const value=document.getElementById("link").value.trim();
+ const result=document.getElementById("result");
+ try{
+  const url=new URL(value);
+  if(!["http:","https:"].includes(url.protocol))
+   throw new Error();
+  result.innerHTML=
+   "<b>Đã nhận diện liên kết</b><br>"+
+   "Tên miền: "+url.hostname+
+   "<br><br><a href='"+url.href+
+   "' target='_blank' rel='noopener noreferrer'>Mở liên kết gốc</a>";
+ }catch(e){
+  result.textContent="Link không hợp lệ. Hãy nhập lại!";
+ }
+}
+</script>
+</body>
+</html>
